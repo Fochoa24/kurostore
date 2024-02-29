@@ -1,11 +1,8 @@
 
 import React from "react";
-import products from "./data";
 
-const ItemListContainer = ({ match }) => {
-  const category = match.params.categoryName; // Obtenemos el nombre de la categoría de los parámetros de la URL
-
-  // Filtramos los productos por categoría
+const ItemListContainer = ({ match, products }) => {
+  const category = match.params.categoryName;
   const filteredProducts = category
     ? products.filter(product => product.category === category)
     : products;
@@ -17,7 +14,6 @@ const ItemListContainer = ({ match }) => {
         {filteredProducts.map(product => (
           <li key={product.id}>
             <p>{product.name}</p>
-            {/* Agrega más información del producto o enlace al detalle del producto */}
           </li>
         ))}
       </ul>
